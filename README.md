@@ -1,3 +1,19 @@
+![Python](https://img.shields.io/badge/python-3.10-blue.svg)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3.0-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Status](https://img.shields.io/badge/status-completed-success)
+
+
+## 🛠 Skills Used
+
+- Python (Pandas, NumPy, Scikit-learn)
+- Feature Engineering & Preprocessing
+- EDA (Seaborn, Matplotlib)
+- Model Evaluation (PR curves, confusion matrix)
+- Hyperparameter Tuning (GridSearchCV)
+- Model Export & Deployment Readiness
+
+
 # 🛳 Titanic: Survival Prediction – Machine Learning Case Study
 
 A complete end-to-end data science project exploring the Titanic dataset using Python and scikit-learn.  
