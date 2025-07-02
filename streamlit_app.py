@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 
 # Load model
-model = joblib.load('C:/Users/LENOVO/OneDrive/Documents/shubham-personal/OneDrive/Desktop/git_projects/day2_titanic_analysis/final_random_forest_model.pkl')
+model = joblib.load('final_random_forest_model.pkl')
 
 st.title("🎯 Titanic Survival Predictor")
 
