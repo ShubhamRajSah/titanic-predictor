@@ -33,3 +33,6 @@ if st.button("Predict"):
         st.error("💀 prediction : Did not Survive")
 
     st.info(f"🧠 Model Confidence:{confidence}%")        
+
+
+    
