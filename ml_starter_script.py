@@ -16,7 +16,7 @@ np.random.seed(42)  # For reproducibility
 # df['Parch'] = np.random.randint(0, 3, size=len(df))
 
 def engineer_features(df):
-    df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
+    df['FamilySize'] = df['SibSp'] + df['Parch'] + 1 # SibSp and Parch means siblingspouse and parcentchild respectivley.
     df['isAlone'] = (df['FamilySize'] == 1).astype(int)
     df['Title'] = df['Name'].str.extract(r' ([A-Za-z]+)\.', expand=False)
     df['Title'] = df['Title'].replace(['Mlle', 'Ms', 'Mme'], 'Miss')
