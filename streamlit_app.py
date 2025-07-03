@@ -32,7 +32,30 @@ if st.button("Predict"):
     else:
         st.error("💀 prediction : Did not Survive")
 
-    st.info(f"🧠 Model Confidence:{confidence}%")        
+    st.info(f"🧠 Model Confidence:{confidence}%")   
+    
+    # part 2 - confidence bar
+    st.markdown('## Confidence Meter')
+    st.progress(confidence/100)
+    
+    # show both probabilities
+    st.markdown("Prediction Breakdown")
+    st.write(f"Not survived: {round(prediction_proba[0]*100,2)}")
+    st.write(f"Survived: {round(prediction_proba[1]*100,2)}")
+
+    # Emoji confidence tag
+    if confidence >=85:
+        emoji="💪 Very confident "
+    elif confidence >= 60:
+        emoji ="🙂 Fairly confident "
+    else :
+        emoji="🤷‍♂️ Not very confident "
+    st.markdown(f"**{emoji}**")
+
+
+
+
+
 
 
     
