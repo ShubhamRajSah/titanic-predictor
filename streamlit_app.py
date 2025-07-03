@@ -24,12 +24,12 @@ if st.button("Predict"):
     input_data = np.array([[pclass, 0 if sex == 'male' else 1, age, fare,
                             title, family_size, is_alone, embarked,
                             ticket_prefix, deck]])
-    prediction = model.predict(input_data)[0]
-    st.success(f"🎉 Prediction: {'Survived' if prediction == 1 else 'Did Not Survive'}")
-    
+    prediction = model.predict(input_data)
+    prediction_proba=model.predict_proba(input_data)
+    confidence=round(prediction_proba[0] [1 if prediction==1 else 0]*100,2) # 100 is multiplied for a readable percentage and round to 2 decimal places.
+    if prediction==1:
+        st.success(f"🎉 Prediction: Survived")
+    else:
+        st.error("💀 prediction : Did not Survive")
 
-
-
-
-
-    
+    st.info(f"🧠 Model Confidence:{confidence}%")        
