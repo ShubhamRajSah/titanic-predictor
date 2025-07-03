@@ -40,8 +40,8 @@ if st.button("Predict"):
     
     # show both probabilities
     st.markdown("Prediction Breakdown")
-    st.write(f"Not survived: {round(prediction_proba[0]*100,2)}")
-    st.write(f"Survived: {round(prediction_proba[1]*100,2)}")
+    st.write(f"Not survived: {round(prediction_proba[0][0]*100,2)}")
+    st.write(f"Survived: {round(prediction_proba[0][1]*100,2)}")
 
     # Emoji confidence tag
     if confidence >=85:
