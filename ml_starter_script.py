@@ -16,7 +16,7 @@ np.random.seed(42)  # For reproducibility
 # df['Parch'] = np.random.randint(0, 3, size=len(df))
 
 def engineer_features(df):
-    df['FamilySize'] = df['SibSp'] + df['Parch'] + 1 # SibSp and Parch means siblingspouse and parcentchild respectivley.
+    df['FamilySize'] = df['SibSp'] + df['Parch'] + 1 # SibSp and Parch means siblingspouse and parentchild respectivley.
     df['isAlone'] = (df['FamilySize'] == 1).astype(int)
     df['Title'] = df['Name'].str.extract(r' ([A-Za-z]+)\.', expand=False)
     df['Title'] = df['Title'].replace(['Mlle', 'Ms', 'Mme'], 'Miss')
@@ -59,10 +59,6 @@ def train_and_evaluate_model(model, x_train, x_test ,y_test, y_train):
 
 
 try:
-    
-    # features =['Pclass','Sex','Age','Fare','Title','FamilySize','isAlone','Embarked','TicketPrefix','Deck']
-    # x=clean_df[features]
-    # y=clean_df['Survived']
     model=RandomForestClassifier(n_estimators=100, random_state=42)
     print(f'the model used for test and train is {model}')
     train_and_evaluate_model(model, x_train, x_test ,y_test, y_train)
@@ -108,7 +104,6 @@ import seaborn as sns
 # plt.show()
 
 from sklearn.model_selection import GridSearchCV
-from sklearn.ensemble import RandomForestClassifier
 
 param_grid={
     'n_estimators':[100,200],
@@ -133,7 +128,7 @@ print('Best Score: ', grid_search.best_score_)
 fianl_model=RandomForestClassifier(max_depth=8, min_samples_leaf=1, n_estimators=200, random_state=42)
 fianl_model.fit(x,y) # Train on the full dataset
 
-# import joblib
 
-# joblib.dump(fianl_model,'final_random_forest_model.pkl')
+# import joblib
+# joblib.dump(fianl_model,'final_random_forest_model.pkl') # to store the model in a file and named it final_random_forest_model.pkl
 
