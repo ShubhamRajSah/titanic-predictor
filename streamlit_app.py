@@ -23,7 +23,7 @@ deck = st.selectbox("Deck", [0, 1, 2, 3, 4, 5, 6, 7])  # Adjust mapping
 # Prediction
 if st.button("Predict"):
     feature_names = [
-        "pclass", "sex", "age", "fare", "title", "family_size", "is_alone", "embarked", "ticket_prefix", "deck"
+        "Pclass", "Sex", "Age", "Fare", "Title", "FamilySize", "isAlone", "Embarked", "TicketPrefix", "Deck"
     ]
     input_df = pd.DataFrame([[pclass, 0 if sex == 'male' else 1, age, fare,
                             title, family_size, is_alone, embarked,
