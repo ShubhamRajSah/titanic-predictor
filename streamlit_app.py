@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import numpy as np
+import pandas as pd  # Import pandas
 
 # Load model
 model = joblib.load('final_random_forest_model.pkl')
@@ -21,12 +22,15 @@ deck = st.selectbox("Deck", [0, 1, 2, 3, 4, 5, 6, 7])  # Adjust mapping
 
 # Prediction
 if st.button("Predict"):
-    input_data = np.array([[pclass, 0 if sex == 'male' else 1, age, fare,
+    feature_names = [
+        "pclass", "sex", "age", "fare", "title", "family_size", "is_alone", "embarked", "ticket_prefix", "deck"
+    ]
+    input_df = pd.DataFrame([[pclass, 0 if sex == 'male' else 1, age, fare,
                             title, family_size, is_alone, embarked,
-                            ticket_prefix, deck]])
-    prediction = model.predict(input_data)
-    prediction_proba=model.predict_proba(input_data)
-    confidence=round(prediction_proba[0] [1 if prediction==1 else 0]*100,2) # 100 is multiplied for a readable percentage and round to 2 decimal places.
+                            ticket_prefix, deck]], columns=feature_names)
+    prediction = model.predict(input_df)
+    prediction_proba = model.predict_proba(input_df)
+    confidence = round(prediction_proba[0][1 if prediction==1 else 0]*100,2)
     if prediction==1:
         st.success(f"🎉 Prediction: Survived")
     else:
@@ -58,4 +62,4 @@ if st.button("Predict"):
 
 
 
-    
+
